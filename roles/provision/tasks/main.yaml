@@ -1,0 +1,49 @@
+---
+- name: Copy provision file 
+  copy:
+    src: provision-for-fcpe.tar
+    dest: /tmp/provision-for-fcpe.tar
+  become: true
+
+- name: Extract Provision file
+  unarchive:
+    src: /tmp/provision-for-fcpe.tar
+    dest: /tmp
+    remote_src: yes
+  become: true
+
+- name: Set owner and group
+  file:
+    path: pcf
+    owner: root
+    group: root
+    recurse: yes
+    state: directory
+    follow: yes
+  become: true
+
+- name: Set Permissions
+  file:
+    path: /tmp/pcf
+    mode: 755
+    recurse: yes
+    follow: yes
+  become: true
+
+- name: Remove zip file
+  file:
+    path: /tmp/provision-for-fcpe.tar
+    state: absent
+  become: true
+
+- name: Remove .venv 
+  file:
+    path: /tmp/pcf/.venv
+    state: absent
+  become: true
+
+- name: Packages Install with Poetry
+  shell: |
+    cd /tmp/pcf
+    poetry install
+  become: true

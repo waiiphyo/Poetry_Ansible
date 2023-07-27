@@ -1,0 +1,13 @@
+---
+- name: Install pip3 
+  apt:
+    name: python3-pip
+    state: present
+  become: true 
+
+- name: Install Poetry
+  pip:
+    name: poetry
+    state: present
+    executable: pip3
+  become: yes

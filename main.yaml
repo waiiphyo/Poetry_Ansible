@@ -1,0 +1,11 @@
+---
+- name: Terminal Provision
+  hosts: db
+  gather_facts: true
+  become: true 
+
+  roles:
+    - { role: apt }
+    - { role: python }
+    - { role: poetry }
+    - { role: provision }
