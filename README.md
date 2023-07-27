@@ -10,8 +10,12 @@
    ```
 ## Peplace Real Provision file
 
-1. Make sure you update [role/provision/files/provision-for-fcpe.tar](.realfile) 
- 
+1. Make sure you update [role/provision/files/provision-for-fcpe.tar](.realfile) file before running the playbook
+
+   ```
+   rm -rf provision-for-fcpe.tar
+   replace ( real file )
+   ``` 
 
 ## Useful commands
 
