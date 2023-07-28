@@ -19,6 +19,11 @@
 
 ## Useful commands
 
+**check connection
+```bash
+ansible -m ping all
+```
+
 **Playbook syntax check**
 ```bash
 ansible-playbook -v --syntax-check main.yaml
