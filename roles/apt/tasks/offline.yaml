@@ -1,0 +1,15 @@
+--- 
+- name: Update cache
+  apt:
+    update_cache: yes
+  become: true
+
+- name: Copy .deb packages to the remote hosts 
+  copy:
+    src: files
+    dest: /tmp/
+
+- name: Install .deb packages 
+  become: true
+  dpkg: 
+    deb: /tmp/*.deb

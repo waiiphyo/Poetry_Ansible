@@ -19,7 +19,7 @@
 
 ## Useful commands
 
-**check connection
+**check connection**
 ```bash
 ansible -m ping all
 ```
